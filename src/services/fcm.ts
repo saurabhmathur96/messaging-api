@@ -25,10 +25,7 @@ export class FirebaseCloudMessaging {
             Popsicle.request({
                 method: "POST",
                 url: "https://fcm.googleapis.com/fcm/send:443",
-                body: {
-                    username: 'blakeembrey',
-                    password: 'hunter2'
-                },
+                body: payload,
                 headers: {
                     "Host": "fcm.googleapis.com",
                     "Authorization": `key=${this.serverKey}`,

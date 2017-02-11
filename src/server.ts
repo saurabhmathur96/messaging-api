@@ -21,13 +21,18 @@ export function init(configs: IServerConfiguration, database: IDatabase): Hapi.S
     }
 
     const plugins: Array<string> = configs.plugins;
+    let tasks: Array<Promise<void>> = [];
     plugins.forEach((pluginName: string) => {
         let plugin: IPlugin = require(`./plugins/${pluginName}`).default();
-        plugin.register(server, pluginOptions);
+        console.log(`Register Plugin ${plugin.info().name} v${plugin.info().version}`);
+        tasks.push(plugin.register(server, pluginOptions))
     });
 
-    Groups.init(server, configs, database);
-    Users.init(server, configs, database);
+    Promise.all(tasks).then(() => {
+        Users.init(server, configs, database);
+        Groups.init(server, configs, database);
+    })
+    
 
     return server;
 }

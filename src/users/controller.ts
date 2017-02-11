@@ -28,6 +28,7 @@ export default class UserController {
             const token: string = this.generateToken(user);
             reply({ "token": token }).code(201);
         }).catch((error) => {
+            // DB error
             reply(Boom.badImplementation(error));
         })
     }
