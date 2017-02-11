@@ -1,0 +1,13 @@
+{
+    "database": {
+        "connectionString": "mongodb://localhost/messaging"
+    },
+    "server": {
+        "port": 5000,
+        "jwtSecret": "random-secret-password",
+        "jwtExpiration": "1h",
+        "plugins": [
+            "jwt-auth"
+        ]
+    }
+}

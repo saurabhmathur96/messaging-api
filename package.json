@@ -1,0 +1,26 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node app/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "hapi": "^16.1.0",
+    "typescript": "^2.1.6"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "boom": "^4.2.0",
+    "hapi-auth-jwt2": "^7.2.4",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.8.1",
+    "nconf": "^0.8.4",
+    "popsicle": "^9.1.0"
+  }
+}
